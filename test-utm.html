@@ -1,0 +1,34 @@
+"<!DOCTYPE html>
+<html>
+<head>
+    <title>Test UTM Manager</title>
+</head>
+<body>
+    <h1>Test UTM Manager</h1>
+    
+    <p>Enlaces de prueba:</p>
+    <ul>
+        <li><a href=\"https://example.com/about\">About</a></li>
+        <li><a href=\"https://lp.example.com/contact\">Contact</a></li>
+        <li><a href=\"/test-page\">Página relativa</a></li>
+    </ul>
+    
+    <p>Formulario de prueba:</p>
+    <form action=\"/submit\" method=\"post\">
+        <input type=\"text\" name=\"name\" placeholder=\"Nombre\">
+        <input type=\"email\" name=\"email\" placeholder=\"Email\">
+        <button type=\"submit\">Enviar</button>
+    </form>
+    
+    <script>
+    // Simular parámetros UTM en la URL
+    var mockUrl = 'https://example.com/test?utm_source=google&utm_medium=cpc&utm_campaign=test&gclid=abc123';
+    var urlParams = new URLSearchParams(mockUrl.split('?')[1]);
+    
+    console.log('Parámetros UTM simulados:');
+    urlParams.forEach(function(value, key) {
+        console.log(key + ': ' + value);
+    });
+    </script>
+</body>
+</html>"
