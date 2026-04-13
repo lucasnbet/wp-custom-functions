@@ -1,0 +1,410 @@
+/* WhatsApp Popup Styles */
+.wp-custom-whatsapp-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 999999;
+    display: none; /* Oculto por defecto */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    animation: cirionFadeIn 0.3s ease forwards;
+}
+
+@keyframes cirionFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.wp-custom-whatsapp-popup {
+    background: white;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 420px; /* Tamaño más realista */
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: cirionSlideUp 0.4s ease forwards;
+    margin-top: 40px; /* Espacio para el botón de cerrar */
+}
+
+@keyframes cirionSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.wp-custom-popup-header {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    padding: 25px 25px 20px;
+    border-radius: 16px 16px 0 0;
+    text-align: center;
+    position: relative;
+}
+
+/* BOTÓN DE CERRAR - FUERA DEL POPUP */
+.wp-custom-popup-close {
+    position: absolute;
+    top: -40px; /* Posicionado fuera del popup */
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: #333;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.wp-custom-popup-close:hover {
+    background: white;
+    color: #25D366;
+    transform: rotate(90deg);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.wp-custom-popup-header h2 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.wp-custom-popup-header h2 i {
+    font-size: 26px;
+}
+
+.wp-custom-popup-header p {
+    margin: 0;
+    font-size: 15px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.wp-custom-popup-body {
+    padding: 25px;
+}
+
+/* Botón trigger vertical (por defecto) */
+.wp-custom-whatsapp-trigger {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #25D366;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    font-family: 'Maven Pro', 'Segoe UI', sans-serif;
+}
+
+.wp-custom-whatsapp-trigger:hover {
+    color: #128C7E;
+    transform: translateY(-2px);
+}
+
+.wp-custom-whatsapp-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.wp-custom-whatsapp-text {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Variante horizontal */
+.wp-custom-whatsapp-trigger.horizontal {
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px 20px;
+    background: #25D366;
+    color: white;
+    border-radius: 30px;
+}
+
+.wp-custom-whatsapp-trigger.horizontal:hover {
+    background: #128C7E;
+    color: white;
+}
+
+.wp-custom-whatsapp-trigger.horizontal .wp-custom-whatsapp-icon {
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+.wp-custom-whatsapp-trigger.horizontal .wp-custom-whatsapp-text {
+    font-size: 14px;
+}
+
+/* Variante solo icono */
+.wp-custom-whatsapp-trigger.icon-only {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border-radius: 50%;
+    background: #25D366;
+    color: white;
+}
+
+.wp-custom-whatsapp-trigger.icon-only:hover {
+    background: #128C7E;
+    color: white;
+}
+
+.wp-custom-whatsapp-trigger.icon-only .wp-custom-whatsapp-icon {
+    margin: 0;
+    font-size: 28px;
+}
+
+.wp-custom-whatsapp-trigger.icon-only .wp-custom-whatsapp-text {
+    display: none;
+}
+
+/* Botón flotante */
+.wp-custom-whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 9998;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+}
+
+.wp-custom-whatsapp-float:hover {
+    background: #128C7E;
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* Animación de pulso */
+@keyframes cirionPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+.wp-custom-whatsapp-float.pulse {
+    animation: cirionPulse 2s infinite;
+}
+
+/* Botón de submit dentro del popup */
+.wp-custom-popup-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #0073aa; /* Azul */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.wp-custom-popup-submit-btn:hover {
+    background: #EF2AC1; /* Rosa en hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 42, 193, 0.3);
+}
+
+/* Formularios dentro del popup */
+.wp-custom-form-group {
+    margin-bottom: 20px;
+}
+
+.wp-custom-form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.wp-custom-form-group input,
+.wp-custom-form-group select,
+.wp-custom-form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border 0.3s;
+}
+
+.wp-custom-form-group input:focus,
+.wp-custom-form-group select:focus,
+.wp-custom-form-group textarea:focus {
+    outline: none;
+    border-color: #25D366;
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .wp-custom-whatsapp-popup {
+        max-width: 95%;
+        max-height: 90vh;
+        margin-top: 50px; /* Más espacio en móvil */
+    }
+    
+    .wp-custom-popup-header {
+        padding: 20px 20px 15px;
+    }
+    
+    .wp-custom-popup-header h2 {
+        font-size: 22px;
+    }
+    
+    .wp-custom-popup-body {
+        padding: 20px;
+    }
+    
+    .wp-custom-whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+        font-size: 28px;
+    }
+    
+    /* BOTÓN DE CERRAR EN MÓVIL */
+    .wp-custom-popup-close {
+        top: -50px;
+        right: 10px;
+        width: 44px;
+        height: 44px;
+        font-size: 22px;
+        background: white;
+    }
+}
+
+/* Asegurar que Font Awesome se cargue - REGLA CORREGIDA */
+.fab.fa-whatsapp {
+    /* Esta regla puede interferir, mejor simplificarla */
+    display: inline-block;
+}
+
+/* Fallback en caso de que Font Awesome no cargue */
+.wp-custom-whatsapp-icon::before {
+    content: "💬"; /* Emoji como fallback */
+    font-family: Arial, sans-serif;
+    display: none; /* Oculto por defecto */
+}
+
+/* Mostrar fallback solo si Font Awesome falla */
+.wp-custom-whatsapp-icon:not(:has(.fa-whatsapp))::before {
+    display: inline-block;
+}
+
+/* Override para evitar subrayados en botones */
+.wp-custom-whatsapp-trigger,
+.wp-custom-whatsapp-float,
+.wp-custom-popup-close,
+.wp-custom-popup-submit-btn {
+    text-decoration: none !important;
+}
+
+/* REGLAS ESPECÍFICAS PARA ASEGURAR COLOR #25D366 EN MÓVIL */
+@media (max-width: 768px) {
+    .wp-custom-whatsapp-trigger {
+        color: #25D366 !important;
+    }
+    
+    .wp-custom-whatsapp-trigger.horizontal {
+        background: #25D366 !important;
+        color: white !important;
+    }
+    
+    .wp-custom-whatsapp-trigger.icon-only {
+        background: #25D366 !important;
+        color: white !important;
+    }
+    
+    .wp-custom-whatsapp-float {
+        background: #25D366 !important;
+        color: white !important;
+    }
+    
+    .wp-custom-whatsapp-icon {
+        color: inherit !important;
+    }
+    
+    .wp-custom-whatsapp-text {
+        color: inherit !important;
+    }
+}
+
+/* REGLAS ESPECÍFICAS PARA HOVER EN MÓVIL */
+@media (max-width: 768px) {
+    .wp-custom-whatsapp-trigger:hover {
+        color: #128C7E !important;
+    }
+    
+    .wp-custom-whatsapp-trigger.horizontal:hover {
+        background: #128C7E !important;
+        color: white !important;
+    }
+    
+    .wp-custom-whatsapp-trigger.icon-only:hover {
+        background: #128C7E !important;
+        color: white !important;
+    }
+    
+    .wp-custom-whatsapp-float:hover {
+        background: #128C7E !important;
+        color: white !important;
+    }
+}
